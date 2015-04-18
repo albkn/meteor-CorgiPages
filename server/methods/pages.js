@@ -1,17 +1,23 @@
 Meteor.methods({
-  'pullDataFromFbId': function(data) {
+  'pullDataFromFbGraph': function(data) {
     /* Make API call (get JSON) */
-    FBGraph.setAccessToken('CAACEdEose0cBADzYbZCKd0UZCAKgTvu4yqvlS4RwAQKPpSBtgAOXojQvHDf7z5mvORcGz00d1ZCDh5aY9yz1ockSKJk2h0PrTGveFox9eErZCTn3kFybNXwPojaJdbIhNqEilxLZAfMYB6PzaoTl16LZAqgypPNKL9JGQdB936vmxVfZBMSYzwnUYuRJK5xIOWyBZA0TUMvb4H6NGBeojhaU');
+    FBGraph.setAccessToken('CAACEdEose0cBABhu3ApHh6xMZAmvfhtDLmIEZBcOBrtuUufHeCpNxVOU2CtywKZAjW2dAaS5svgkcldpPfPAAhllZBEKqdKZCi6mGklWaZAql6ZBSlhZBNVGIRBXpL4R9v7hJpuX6vlvP8JbSEay0wmidtRLxz9h3rzl1DP2rhYnlykpZCM2QtQzRVdu7HvEQd7zWL4uTlmxAutBZCLkUhtfVY');
 
     var options = {
-      timeout:  3000,
+      timeout:  10000,
       pool:     { maxSockets:  Infinity },
       headers:  { connection:  "keep-alive" }
     };
 
-    FBGraph.setOptions(options).get(data, function(err, res) {
-      if (err) console.log(err);
-      console.log(res);
-    });
+    var newId = Pages.insert({});
+
+    FBGraph.setOptions(options).get(data, Meteor.bindEnvironment(
+      function(err, res) {
+        if (err) console.log(err);
+        Pages.update(newId, res);
+      })
+    );
+
+    return {_id: newId};
   }
 });
