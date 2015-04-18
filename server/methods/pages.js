@@ -11,7 +11,7 @@ Meteor.methods({
 
     var newId = Pages.insert({});
 
-    FBGraph.setOptions(options).get(data, Meteor.bindEnvironment(
+    FBGraph.setOptions(options).get(data.facebookurl, Meteor.bindEnvironment(
       function(err, res) {
         if (err) console.log(err);
         Pages.update(newId, res);

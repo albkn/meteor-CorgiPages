@@ -2,8 +2,13 @@ body{
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+h1,h2,h3,h4,h5{
+  font-weight:700;
+  margin:0px;
+}
+
 .top-wrapper{
-  min-height: 500px;
+  min-height: 650px;
   background-color: #249ec3;
   color:white;
   text-align:center;
@@ -27,4 +32,9 @@ body{
 
 .center{
   text-align:center;
+}
+
+
+.description{
+  padding:20px;
 }

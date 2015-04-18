@@ -8,13 +8,14 @@ Template.homepage.events({
   'submit .pageConvert': function(e){
     e.preventDefault();
 
+    var input = $(e.target).find('[name=facebookurl]').val();
+    var facebookurl = extractFbIdFromURL(input);
+
     var data = {
-      facebookurl: $(e.target).find('[name=facebookurl]').val()
+      facebookurl: facebookurl
     }
 
-    
-
-    alert(data.facebookurl);
+    Meteor.call('pullDataFromFbGraph', data);
   }
 
 
