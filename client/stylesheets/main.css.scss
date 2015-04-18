@@ -11,7 +11,7 @@ h1,h2,h3,h4,h5{
   min-height: 650px;
   background-color: #249ec3;
   color:white;
-  text-align:center;
+  //text-align:center;
   padding:90px 0px;
   //background: url('https://ununsplash.imgix.net/photo-1428604467652-115d9d71a7f1?dpr=2&fit=crop&fm=jpg&h=700&q=75&w=1050') no-repeat center center fixed;
   background-size: cover;
@@ -19,9 +19,11 @@ h1,h2,h3,h4,h5{
 }
 
 .title{
-  font-family: 'Bangers', cursive;
-  font-size:4em;
+  font-weight:300;
+  letter-spacing:3px;
+  font-size:2em;
   margin-bottom:20px;
+  line-height:1.6;
 }
 
 
@@ -32,9 +34,4 @@ h1,h2,h3,h4,h5{
 
 .center{
   text-align:center;
-}
-
-
-.description{
-  padding:20px;
 }

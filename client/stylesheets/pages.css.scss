@@ -1,8 +1,7 @@
 .top-page-wrapper{
-  padding: 150px 0px 120px;
-  min-height:250px;
-  background-color:#2b5fbc;
-  color:white;
+  padding: 60px 0px 60px;
+  //min-height:250px;
+  //background-color:#2b5fbc;
   text-align:center;
 }
 
@@ -13,7 +12,7 @@
 }
 
 .third-page-wrapper{
-
+  text-align:center;
 }
 
 .page-title{
@@ -32,4 +31,12 @@
   color:#686868;
   line-height:1.9;
 
+}
+
+.cover{
+  text-align:center;
+  img{
+    height:50%;
+    width:50%;
+  }
 }
