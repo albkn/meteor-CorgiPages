@@ -1,31 +1,54 @@
 <template name="showPage">
-  <div class="top-page-wrapper" style=" background-image: url(https://ununsplash.imgix.net/photo-1422640805998-18a4dd89bec2?dpr=2&fit=crop&fm=jpg&h=625&q=75&w=1050); background-attachment: scroll; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
+  <div class="top-page-wrapper" >
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="page-title">Grounds of Alexandria</div>
+          <div class="page-title">{{this.facebook.name}}</div>
           <div class="page-subtitle">
-            {{{cleanSyntax 'Cafe Roastery, Bar, Eatery, Garden & Markets.\n'}}}
+            {{{cleanSyntax this.facebook.about}}}
+
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="third-page-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="description">
-            <br/>
-            <h4>Information</h4>
-            <br/>
-            {{{cleanSyntax 'Located in a former industrial precinct from the 1920s, The Grounds of Alexandria is a landmark coffee roaster, café, bar, Eatery and kitchen garden known for its abundance of fresh produce and hands-on experiences. Opened in 2012, the site hosts a coffee research and testing facility, artisan bakery and luscious open garden of heirloom vegetables, fragrant herbs, fresh fruit and flowers. With a nod to the sites heritage, The Grounds provides a wholesome and produce-driven dining experience complimented by a range of hand-made organic breads, jam and pastries.\n\nOur Cafe & Roastery is open Mon - Fri 7am to 4pm. Sat - Sun 7:30am to 4pm.\n\nThe Potting Shed is open:\nMon - Thurs 11:30am - 10pm\nFri - 11:30am - 11pm\nSat - 11am - 11pm\nSun - 11am to 10pm\n\nOur Markets occur from 8am - 3pm, dates as advertised.'}}}
+
+  {{#if this.facebook.description}}
+    <br/>
+    <br/>
+    <div class="third-page-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div class="description">
+              <h4>Information</h4>
+              <br/>
+              {{{cleanSyntax this.facebook.description}}}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <br/>
-    <br/>
+  {{/if}}
+
+  <div class="container">
+    <div class="row">
+      <div class="cover">
+        <img src="{{this.facebook.cover.source}}">
+      </div>
+    </div>
   </div>
+
+  <br/>
+  <br/>
+
+  <div class="map-wrapper">
+    {{this.facebook.location.latitude}},
+    {{this.facebook.location.longitude}}
+
+  </div>
+
+  <br/>
+  <br/>
 </template>

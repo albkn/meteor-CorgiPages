@@ -1,5 +1,10 @@
 Template.homepage.helpers({
 
+  getProfile: function(){
+    return this.facebook.photos.images;
+
+  }
+
 });
 
 
@@ -15,7 +20,9 @@ Template.homepage.events({
       facebookurl: facebookurl
     }
 
-    Meteor.call('pullDataFromFbGraph', data);
+    Meteor.call('pullDataFromFbGraph', data, function(err, res){
+      Router.go('showPage', {_id: res._id})
+    });
   }
 
 
