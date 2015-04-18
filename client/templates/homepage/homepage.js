@@ -1,6 +1,7 @@
 Template.homepage.helpers({
 
   getProfile: function(){
+    document.title = 'CorgiPages | Make an articially-intelligent webpage out of your facebook page'
     return this.facebook.photos.images;
 
   }

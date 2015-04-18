@@ -1,3 +1,12 @@
+var setReservation = function(datetime, reservation){
+
+  var data ={
+    reservationTime: dateTime
+
+  }
+}
+
+
 Template.showPage.helpers({
 
   cleanSyntax: function(paragraph){
@@ -9,7 +18,12 @@ Template.showPage.helpers({
 
   },
 
+  witResponse: function(){
+    return WitResponses.find();
+  },
+
   getProfile: function(){
+    document.title = this.facebook.name
     return this.facebook_photos.photos.data[0].images[0].source
   },
 
@@ -24,6 +38,7 @@ Template.showPage.helpers({
   exampleMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
+
       // Map initialization options
       var placeLat = this.facebook.location.latitude;
       var placeLng = this.facebook.location.longitude;
@@ -33,7 +48,9 @@ Template.showPage.helpers({
         zoom: 16
       };
     }
-  }
+  },
+
+
 
 });
 
@@ -54,8 +71,30 @@ Template.showPage.events({
 
   'submit .submit-query': function(e){
     e.preventDefault();
+
     var query =  $(e.target).find('[name=query]').val();
-    alert(query);
+
+    var data ={
+      question: query
+    }
+
+    var facebookName = this.facebook.name;
+    var facebookAddress = this.facebook.location.street+' '+this.facebook.location.city+' '+this.facebook.location.zip;
+
+    Meteor.call('getIntentFromWit', data, function(err,res){
+
+      switch(res){
+        case "address":
+          alert(facebookAddress);
+          addWitResponse(facebookAddress);
+          break;
+        case "about":
+          alert(this.facebook.about);
+          break;
+        }
+    });
+
+
   }
 
 })

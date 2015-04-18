@@ -15,39 +15,6 @@
   </div>
 
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8">
-        <div class="chat-area">
-          <b>Chat with Helpist about {{this.facebook.name}}!</b>
-          <br/><br/>
-
-          <div class="row ai-message">
-            <div class="col-md-2 ai-profile">
-              <img src="/corgi.png" class="circle">
-            </div>
-            <div class="col-md-10">
-              <div class="ai-text">
-                Hello! I'm Corgi trained by the folks at {{this.facebook.name}}! What can I help you with?
-              </div>
-            </div>
-            <br/>
-          </div>
-          <br/>
-          <form class="submit-query">
-            <textarea class="query form-control" name="query" row="5" placeholder="Ask a question here"></textarea>
-            <br/>
-            <input type="submit" class="btn btn-info ">
-          </form>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br/>
-
   {{#if this.facebook.description}}
     <br/>
     <div class="third-page-wrapper">
@@ -65,6 +32,47 @@
       </div>
     </div>
   {{/if}}
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="chat-area">
+          <b>Chat with Helpist about {{this.facebook.name}}!</b>
+          <br/><br/>
+
+          <div class="row ai-message">
+            <div class="col-md-2 ai-profile">
+              <img src="/corgi.png" class="circle">
+            </div>
+            <div class="col-md-10">
+              <div class="ai-text">
+                Woof! Hello! I'm Corgi trained by the folks at {{this.facebook.name}}! What can I help you with?
+              </div>
+            </div>
+            <br/>
+          </div>
+
+          {{#each witResponse}}
+              <li> {{res}}</li>
+          {{/each}}
+
+
+          <br/>
+          <form class="submit-query">
+            <textarea class="query form-control" name="query" row="5" placeholder="Ask a question here"></textarea>
+            <br/>
+            <input type="submit" class="btn btn-info ">
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+
 
   <div class="cover-wrapper">
     <div class="container">

@@ -11,8 +11,9 @@ Meteor.methods({
       headers: { Authorization: authString }
     });
     var outcomes = JSON.parse(res.content).outcomes[0];
+    console.log(outcomes)
     var res = respondToWitOutcome(outcomes);
-    console.log(outcomes.entities.datetime);
+    //console.log(outcomes.entities.datetime);
     console.log(res);
     return res;
   }
@@ -28,7 +29,7 @@ respondToWitOutcome = function(outcome) {
   switch (outcome.intent) {
     case "get_address":
       // Send address
-      result = "Please don't ask me Siri type of questions, Woof";
+      result = "address";
       break;
     case "get_about":
       // Send about
@@ -47,6 +48,5 @@ respondToWitOutcome = function(outcome) {
       result = "Please don't ask me Siri type of questions, Woof";
       break;
   }
-  console.log("session set");
   return result;
 }
