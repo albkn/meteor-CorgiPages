@@ -7,3 +7,13 @@
 meteor-platform
 autopublish
 insecure
+twbs:bootstrap
+accounts-password
+alanning:roles
+dburles:google-maps
+fourseven:scss
+iron:router
+underscore
+momentjs:moment
+multiply:iron-router-progress
+pcel:loading
