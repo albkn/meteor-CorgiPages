@@ -14,7 +14,7 @@ Meteor.methods({
     FBGraph.setOptions(options).get(data.facebookurl, Meteor.bindEnvironment(
       function(err, res) {
         if (err) console.log(err);
-        Pages.update(newId, res);
+        Pages.update(newId, {'facebook': res});
       })
     );
 
