@@ -11,17 +11,17 @@ Meteor.methods({
       headers: { Authorization: authString }
     });
     var outcomes = JSON.parse(res.content).outcomes[0];
-    console.log(outcomes)
+    // console.log(outcomes)
     var res = respondToWitOutcome(outcomes);
     //console.log(outcomes.entities.datetime);
-    console.log(res);
+    // console.log(res);
     return res;
   }
 });
 
 respondToWitOutcome = function(outcome) {
   var result = {};
-  if (outcome.confidence < 0.3) {
+  if (outcome.confidence < 0.5) {
     // Send joke
     result.type = "joke";
     return result;
@@ -38,7 +38,12 @@ respondToWitOutcome = function(outcome) {
       break;
     case "get_opening_hours":
       // Send opening hours
-      result.type = "opening_hours ";
+      result.type = "opening_hours";
+      if (!outcome.entities.day)
+        result.day = 'all';
+      else
+        result.day = outcome.entities.day[0].value.toLowerCase();
+      result.openClose = outcome.entities.open_close[0].value.toLowerCase();
       break;
     case "make_reservations":
       // Send make reservations
