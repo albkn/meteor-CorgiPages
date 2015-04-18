@@ -1,5 +1,9 @@
 Meteor.methods({
   'pullDataFromFbGraph': function(data) {
+    check(data, {
+      facebookurl: String
+    })
+
     /* Make API call (get JSON) */
     FBGraph.setAccessToken('CAACEdEose0cBABhu3ApHh6xMZAmvfhtDLmIEZBcOBrtuUufHeCpNxVOU2CtywKZAjW2dAaS5svgkcldpPfPAAhllZBEKqdKZCi6mGklWaZAql6ZBSlhZBNVGIRBXpL4R9v7hJpuX6vlvP8JbSEay0wmidtRLxz9h3rzl1DP2rhYnlykpZCM2QtQzRVdu7HvEQd7zWL4uTlmxAutBZCLkUhtfVY');
 
@@ -14,14 +18,14 @@ Meteor.methods({
     FBGraph.setOptions(options).get(data.facebookurl, Meteor.bindEnvironment(
       function(err, res) {
         if (err) console.log(err);
-        Pages.update(newId, {'facebook': res});
+        Pages.update(newId, {$set: {'facebook': res}});
       })
     );
 
     FBGraph.setOptions(options).get(data.facebookurl+'?fields=photos', Meteor.bindEnvironment(
       function(err, res) {
         if (err) console.log(err);
-        Pages.update(newId, {'facebook_photos': res});
+        Pages.update(newId, {$set: {'facebook_photos': res}});
       })
     );
 
