@@ -3,10 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <img class="profile_image" src="{{getProfile}}">
+          <br/><br/><br/>
           <div class="page-title">{{this.facebook.name}}</div>
           <div class="page-subtitle">
             {{{cleanSyntax this.facebook.about}}}
-
           </div>
         </div>
       </div>
@@ -14,8 +15,40 @@
   </div>
 
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="chat-area">
+          <b>Chat with Helpist about {{this.facebook.name}}!</b>
+          <br/><br/>
+
+          <div class="row ai-message">
+            <div class="col-md-2 ai-profile">
+              <img src="/corgi.png" class="circle">
+            </div>
+            <div class="col-md-10">
+              <div class="ai-text">
+                Hello! I'm Corgi trained by the folks at {{this.facebook.name}}! What can I help you with?
+              </div>
+            </div>
+            <br/>
+          </div>
+          <br/>
+          <form class="submit-query">
+            <textarea class="query form-control" name="query" row="5" placeholder="Ask a question here"></textarea>
+            <br/>
+            <input type="submit" class="btn btn-info ">
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+
   {{#if this.facebook.description}}
-    <br/>
     <br/>
     <div class="third-page-wrapper">
       <div class="container">
@@ -25,6 +58,7 @@
               <h4>Information</h4>
               <br/>
               {{{cleanSyntax this.facebook.description}}}
+              <br/><br/>
             </div>
           </div>
         </div>
@@ -32,23 +66,37 @@
     </div>
   {{/if}}
 
-  <div class="container">
-    <div class="row">
-      <div class="cover">
-        <img src="{{this.facebook.cover.source}}">
+  <div class="cover-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="cover">
+          {{#each photosList}}
+            <img src="{{getImage}}">
+          {{/each}}
+          <img src="{{this.facebook.cover.source}}">
+        </div>
       </div>
     </div>
   </div>
 
-  <br/>
-  <br/>
-
-  <div class="map-wrapper">
-    {{this.facebook.location.latitude}},
-    {{this.facebook.location.longitude}}
-
-  </div>
-
-  <br/>
-  <br/>
+  {{#if this.facebook.location.street}}
+    <div class="address-wrapper center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Address</h4>
+            <p>
+              {{this.facebook.location.street}}
+              <br/>{{this.facebook.location.city}} {{this.facebook.location.zip}}, {{this.facebook.location.state}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+  {{#if this.facebook.location.latitude}}
+    <div class="map-container">
+      {{> googleMap name="exampleMap" options=exampleMapOptions}}
+    </div>
+  {{/if}}
 </template>

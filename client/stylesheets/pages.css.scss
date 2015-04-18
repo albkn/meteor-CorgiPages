@@ -1,5 +1,5 @@
 .top-page-wrapper{
-  padding: 60px 0px 60px;
+  padding: 40px 0px 40px;
   //min-height:250px;
   //background-color:#2b5fbc;
   text-align:center;
@@ -13,16 +13,24 @@
 
 .third-page-wrapper{
   text-align:center;
+
+}
+
+.cover-wrapper{
+  background-color:#767676;
+  overflow:hidden;
+  height:200px;
 }
 
 .page-title{
-  font-size:3em;
+  font-size:2.5em;
   font-weight:700;
 }
 
 .page-subtitle{
   font-size:1.9em;
-
+  font-weight:300;
+  color:#8c8c8c;
 }
 
 
@@ -36,7 +44,63 @@
 .cover{
   text-align:center;
   img{
-    height:50%;
-    width:50%;
+    height:200px;
+    margin-right:-3px;
   }
+}
+
+.map-container {
+  width: 800px;
+  max-width: 100%;
+  height: 500px;
+}
+
+.profile_image{
+  padding:10px;
+  height:180px;
+  width:180px;
+  border:1px solid #dcdcdc;
+}
+
+
+.chat-area{
+  border: 1px solid #dcdcdc;
+  min-height:50px;
+  padding:50px;
+}
+
+.ai-profile{
+  //width:90px;
+}
+
+.ai-text{
+  ///width: calc(100%-100px);
+  border-radius:4px;
+  background-color:#b3ec59;
+  padding:15px;
+
+}
+
+.circle{
+  border-radius:100%;
+  height:80px;
+  width:80px;
+}
+
+.address-wrapper{
+  padding:45px 0px 30px;
+  background-color:#555555;
+  color:white;
+}
+
+.lg-circle{
+  border-radius:100%;
+  height:120px;
+  width:120px;
+}
+
+.tiny{
+  font-size:0.8em;
+  font-weight:300;
+  color: #abd8f6;
 }
