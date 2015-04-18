@@ -81,12 +81,16 @@ Template.showPage.events({
     var facebookName = this.facebook.name;
     var facebookAddress = this.facebook.location.street+' '+this.facebook.location.city+' '+this.facebook.location.zip;
 
+
+
+    addWitResponseUser(query);
+
+
     Meteor.call('getIntentFromWit', data, function(err,res){
 
       switch(res){
         case "address":
-          alert(facebookAddress);
-          addWitResponse(facebookAddress);
+          addWitResponseAI(facebookAddress);
           break;
         case "about":
           alert(this.facebook.about);

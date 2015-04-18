@@ -1,5 +1,9 @@
 WitResponses = new Mongo.Collection(null);
 
-addWitResponse = function(response) {
-  WitResponses.insert({res: response});
+addWitResponseAI = function(response) {
+  WitResponses.insert({res: response, fromAI: true});
+};
+
+addWitResponseUser = function(response) {
+  WitResponses.insert({res: response, fromAI: false});
 };

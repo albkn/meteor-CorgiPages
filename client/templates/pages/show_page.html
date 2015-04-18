@@ -54,7 +54,12 @@
           </div>
 
           {{#each witResponse}}
-              <li> {{res}}</li>
+              {{#if fromAI}}
+                <li>Corgi: {{res}}</li>
+              {{else}}
+                <li> User: {{res}}</li>
+              {{/if}}
+
           {{/each}}
 
 
