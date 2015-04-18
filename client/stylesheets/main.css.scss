@@ -1,0 +1,30 @@
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.top-wrapper{
+  min-height: 500px;
+  background-color: #249ec3;
+  color:white;
+  text-align:center;
+  padding:90px 0px;
+  //background: url('https://ununsplash.imgix.net/photo-1428604467652-115d9d71a7f1?dpr=2&fit=crop&fm=jpg&h=700&q=75&w=1050') no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title{
+  font-family: 'Bangers', cursive;
+  font-size:4em;
+  margin-bottom:20px;
+}
+
+
+.btn-epic{
+  padding:30px 50px;
+  background-color:#7bd241;
+}
+
+.center{
+  text-align:center;
+}
