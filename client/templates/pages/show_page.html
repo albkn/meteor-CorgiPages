@@ -54,14 +54,12 @@
           </div>
 
           {{#each witResponse}}
-              {{#if fromAI}}
-                <li>Corgi: {{res}}</li>
-              {{else}}
-                <li> User: {{res}}</li>
-              {{/if}}
-
+            {{#if fromAI}}
+              {{> corgiChat}}
+            {{else}}
+              <div class="userchat"> {{res}}</div>
+            {{/if}}
           {{/each}}
-
 
           <br/>
           <form class="submit-query">
