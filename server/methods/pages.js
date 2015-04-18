@@ -18,6 +18,13 @@ Meteor.methods({
       })
     );
 
+    FBGraph.setOptions(options).get(data.facebookurl+'?fields=photos', Meteor.bindEnvironment(
+      function(err, res) {
+        if (err) console.log(err);
+        Pages.update(newId, {'facebook_photos': res});
+      })
+    );
+
     return {_id: newId};
   }
 });
