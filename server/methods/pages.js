@@ -2,10 +2,18 @@ Meteor.methods({
   'pullDataFromFbGraph': function(data) {
     check(data, {
       facebookurl: String
-    })
+    });
 
     /* Make API call (get JSON) */
-    FBGraph.setAccessToken('CAACEdEose0cBABhu3ApHh6xMZAmvfhtDLmIEZBcOBrtuUufHeCpNxVOU2CtywKZAjW2dAaS5svgkcldpPfPAAhllZBEKqdKZCi6mGklWaZAql6ZBSlhZBNVGIRBXpL4R9v7hJpuX6vlvP8JbSEay0wmidtRLxz9h3rzl1DP2rhYnlykpZCM2QtQzRVdu7HvEQd7zWL4uTlmxAutBZCLkUhtfVY');
+    FBGraph.setAccessToken(fbAccessToken);
+
+    FBGraph.extendAccessToken({
+      "access_token":   fbAccessToken,
+      "client_id":      fbClientId,
+      "client_secret":  fbClientSecret
+    }, function (err, facebookRes) {
+       console.log(facebookRes);
+    });
 
     var options = {
       timeout:  10000,
