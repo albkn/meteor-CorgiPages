@@ -88,7 +88,7 @@ Template.showPage.events({
 
     Meteor.call('getIntentFromWit', data, function(err,res){
 
-      switch(res){
+      switch(res.type){
         case "address":
           addWitResponseAI(facebookAddress);
           break;

@@ -20,32 +20,33 @@ Meteor.methods({
 });
 
 respondToWitOutcome = function(outcome) {
+  var result = {};
   if (outcome.confidence < 0.3) {
     // Send joke
-    result = "Please don't ask me Siri type of questions, Woof";
+    result.type = "joke";
     return result;
   }
 
   switch (outcome.intent) {
     case "get_address":
       // Send address
-      result = "address";
+      result.type = "address";
       break;
     case "get_about":
       // Send about
-      result = "Please don't ask me Siri type of questions, Woof";
+      result.type = "about";
       break;
     case "get_opening_hours":
       // Send opening hours
-      result = "Please don't ask me Siri type of questions, Woof";
+      result.type = "opening_hours ";
       break;
     case "make_reservations":
       // Send make reservations
-      result = "Please don't ask me Siri type of questions, Woof";
+      result.type = "make_reservations";
       break;
     case "set_donation":
       // Send set donations
-      result = "Please don't ask me Siri type of questions, Woof";
+      result.type = "set_donation";
       break;
   }
   return result;
