@@ -5,15 +5,7 @@ Meteor.methods({
     });
 
     /* Make API call (get JSON) */
-    FBGraph.setAccessToken(fbAccessToken);
-
-    FBGraph.extendAccessToken({
-      "access_token":   fbAccessToken,
-      "client_id":      fbClientId,
-      "client_secret":  fbClientSecret
-    }, function (err, facebookRes) {
-       console.log(facebookRes);
-    });
+    FBGraph.setAccessToken(CREDENTIALS.facebook.accessToken);
 
     var options = {
       timeout:  10000,

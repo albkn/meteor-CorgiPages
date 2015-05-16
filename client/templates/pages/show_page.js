@@ -1,21 +1,17 @@
 var setReservation = function(datetime, reservation){
-
   var data ={
     reservationTime: dateTime
-
-  }
-}
+  };
+};
 
 
 Template.showPage.helpers({
-
   cleanSyntax: function(paragraph){
     if(paragraph){
       return paragraph.replace(/\n/g, "<br />");
     } else {
-      return paragraph
+      return paragraph;
     }
-
   },
 
   witResponse: function(){
@@ -23,16 +19,16 @@ Template.showPage.helpers({
   },
 
   getProfile: function(){
-    document.title = this.facebook.name
-    return this.facebook_photos.photos.data[0].images[0].source
+    document.title = this.facebook.name;
+    return this.facebook_photos.photos.data[0].images[0].source;
   },
 
   photosList: function(){
-    return this.facebook_photos.photos.data
+    return this.facebook_photos.photos.data;
   },
 
   getImage: function(){
-    return this.images[0].source
+    return this.images[0].source;
   },
 
   exampleMapOptions: function() {
@@ -49,9 +45,6 @@ Template.showPage.helpers({
       };
     }
   },
-
-
-
 });
 
 
@@ -74,9 +67,9 @@ Template.showPage.events({
 
     var query =  $(e.target).find('[name=query]').val();
 
-    var data ={
+    var data = {
       question: query
-    }
+    };
 
     var facebookName = this.facebook.name;
     var facebookAddress = this.facebook.location.street+' '+this.facebook.location.city+' '+this.facebook.location.zip;
@@ -147,4 +140,4 @@ Template.showPage.events({
     $(e.target).find('[name=query]').val('');
   }
 
-})
+});

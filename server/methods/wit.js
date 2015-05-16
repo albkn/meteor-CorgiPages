@@ -6,20 +6,17 @@ Meteor.methods({
 
     /* Make API call to Wit ai */
     var apiURL = 'https://api.wit.ai/message?v=20141022&q='+data.question;
-    var authString = "Bearer " + witAccessToken;
-    var res = HTTP.get(apiURL, {
+    var authString = "Bearer " + CREDENTIALS.wit.accessToken;
+    var apiRes = HTTP.get(apiURL, {
       headers: { Authorization: authString }
     });
-    var outcomes = JSON.parse(res.content).outcomes[0];
-    // console.log(outcomes)
+    var outcomes = JSON.parse(apiRes.content).outcomes[0];
     var res = respondToWitOutcome(outcomes);
-    //console.log(outcomes.entities.datetime);
-    // console.log(res);
     return res;
   }
 });
 
-respondToWitOutcome = function(outcome) {
+var respondToWitOutcome = function(outcome) {
   var result = {};
   if (outcome.confidence < 0.5) {
     // Send joke
@@ -55,4 +52,4 @@ respondToWitOutcome = function(outcome) {
       break;
   }
   return result;
-}
+};

@@ -1,16 +1,12 @@
 Template.homepage.helpers({
-
   getProfile: function(){
-    document.title = 'CorgiPages | Make an articially-intelligent webpage out of your facebook page'
+    document.title = 'CorgiPages | Make an articially-intelligent webpage out of your facebook page';
     return this.facebook.photos.images;
-
   }
-
 });
 
 
 Template.homepage.events({
-
   'submit .pageConvert': function(e){
     e.preventDefault();
 
@@ -19,12 +15,10 @@ Template.homepage.events({
 
     var data = {
       facebookurl: facebookurl
-    }
+    };
 
     Meteor.call('pullDataFromFbGraph', data, function(err, res){
-      Router.go('showPage', {_id: res._id})
+      Router.go('showPage', {_id: res._id});
     });
   }
-
-
 });
